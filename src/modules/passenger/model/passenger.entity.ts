@@ -1,5 +1,5 @@
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ObjectIdColumn } from 'typeorm';
 import { PassengerData } from '.';
 
 @Entity({ name: 'passengers' })
@@ -7,13 +7,13 @@ export class Passenger {
 
     public static readonly NAME_LENGTH = 50;
 
-    @PrimaryGeneratedColumn()
+    @ObjectIdColumn()
     public id: number;
 
-    @Column({ name: 'first_name', length: Passenger.NAME_LENGTH })
+    @Column({ name: 'firstName', length: Passenger.NAME_LENGTH })
     public firstName: string;
 
-    @Column({ name: 'last_name', length: Passenger.NAME_LENGTH })
+    @Column({ name: 'lastName', length: Passenger.NAME_LENGTH })
     public lastName: string;
 
     public buildData(): PassengerData {
